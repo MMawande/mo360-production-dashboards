@@ -1,0 +1,133 @@
+{
+  // Name of the cluster-policy to be used as reference in configs for interactive-clusters and/or job-definitions
+  "name": "mo360dp-proddshbrd-standard-compute",
+  // Policy definition
+  // See https://docs.databricks.com/api/workspace/clusterpolicies/create#definition for more details
+  "definition": {
+    "data_security_mode": {
+      "type": "fixed",
+      "value": "USER_ISOLATION" //Standard Cluster in the DBX UI
+    },
+    "node_type_id": {
+      "type": "allowlist",
+      "values": [
+        "Standard_D8s_v3",
+        "Standard_F4s_v2"
+      ],
+      "defaultValue": "Standard_F4s_v2"
+    },
+    "num_workers": {
+      "type": "range",
+      "minValue": 1,
+      "maxValue": 4,
+      "defaultValue": 1
+    },
+    "spark_conf.fs.azure.account.hns.enabled": {
+      "type": "fixed",
+      "value": "true"
+    },
+    "spark_conf.spark.databricks.delta.preview.enabled": {
+      "type": "fixed",
+      "value": "true"
+    },
+    "spark_conf.spark.sql.execution.arrow.enabled": {
+      "type": "fixed",
+      "value": "true"
+    },
+    "spark_env_vars.PYSPARK_PYTHON": {
+      "type": "fixed",
+      "value": "/databricks/python3/bin/python3"
+    },
+    "spark_version": {
+      "type": "allowlist",
+      "values": [
+        "13.3.x-scala2.12",
+        "15.4.x-scala2.12"
+      ],
+      "defaultValue": "15.4.x-scala2.12"
+    },
+    "runtime_engine": {
+      "type": "fixed",
+      "value": "STANDARD",
+      "hidden": true
+    },
+    "custom_tags.usecaseName": {
+      "type": "fixed",
+      "value": "proddshbrd"
+    },
+    "custom_tags.clusterindex": {
+      "type": "fixed",
+      "value": "{{ index }}"
+    },
+    "custom_tags.clusterstage": {
+      "type": "fixed",
+      "value": "{{ stageName }}"
+    },
+    "custom_tags.photon": {
+      "type": "fixed",
+      "value": "false"
+    }
+  },
+  // Libraries to be installed on the cluster
+  // See https://docs.databricks.com/api/workspace/clusterpolicies/create#libraries for more details
+  // Caveat: Once libraries are installed through a cluster-policy, users are no longer able to install additional libraries on the cluster!
+  "libraries": [
+    {
+      "maven": {
+        "coordinates": "com.databricks:databricks-jdbc:2.6.40-patch-1",
+        "repo": "https://repo1.maven.org/maven2"
+      }
+    },
+    {
+      "whl": "/Volumes/westeurope_mo360dp_hub_prd/libraries/data_quality_framework/data_quality_framework-4.3.1-py3-none-any.whl"
+    },
+    {
+      "whl": "/Volumes/westeurope_mo360dp_hub_dev/libraries/template-data-processing/mo360dp_dpt-6.0.0-py3-none-any.whl"
+    },
+    {
+      "pypi": {
+        "package": "msal"
+      }
+    },
+    {
+      "pypi": {
+        "package": "azure-monitor-query"
+      }
+    },
+        {
+      "pypi": {
+        "package": "dbt-databricks>=1.0.0,<2.0.0"
+      }
+    },
+    {
+      "pypi": {
+        "package": "azure-identity"
+      }
+    },
+    {
+      "pypi": {
+        "package": "azure-core"
+      }
+    },
+    {
+      "pypi": {
+        "package": "azure-monitor-ingestion"
+      }
+    },
+    {
+      "pypi": {
+        "package": "json5"
+      }
+    },
+    {
+      "pypi": {
+        "package": "dbdemos"
+      }
+    },
+    {
+      "pypi": {
+        "package": "databricks-sdk"
+      }
+    }
+  ]
+}
