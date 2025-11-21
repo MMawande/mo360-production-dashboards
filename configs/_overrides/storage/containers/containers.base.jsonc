@@ -1,0 +1,8 @@
+{
+  "blobContainers": [],
+  "managedBlobContainers": [
+    "gold",
+    "processing",
+    "monitoring"
+  ]
+}
