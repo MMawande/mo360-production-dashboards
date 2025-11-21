@@ -1,0 +1,18 @@
+{
+  "logAnalytics": [
+    {
+      "roleName": "Contributor",
+      "principalIds": [
+        "DAI-GM5_mo360proddashboards_dev-we-databricks_1642-21"
+      ]
+    }
+  ],
+  "dataCollectionRule": [
+    {
+      "roleName": "Monitoring Metrics Publisher",
+      "principalIds": [
+        "DAI-GM5_mo360proddashboards_dev-we-databricks_1642-21"
+      ]
+    }
+  ]
+}

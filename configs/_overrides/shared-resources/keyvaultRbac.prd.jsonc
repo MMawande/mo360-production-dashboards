@@ -1,0 +1,25 @@
+[
+  {
+    "roleName": "Contributor",
+    "principalIds": [
+      "DAI-GM5_mo360proddashboards_aad_1642-1"
+    ]
+  },
+  {
+    "roleName": "Key Vault Secrets Officer",
+    "principalIds": [
+      "AL#CSPX_MO360SF2.PPU_productionDashboards_isInfrastructureAdmin",
+      "DAI-GM5_mo360proddashboards_aad_1642-1",
+      "DAI-GM5_mo360proddashboards_prd-we-infrastructure_1642-30"
+    ]
+  },
+  {
+    "roleName": "Key Vault Secrets User",
+    "principalIds": [
+      "AL#CSPX_MO360SF2.PPU_productionDashboards_isInfrastructureAdmin",
+      "AL#CSTX_MO360SF2.TPU_productionDashboards_isInfrastructureDeveloper",
+      "DAI-GM5_mo360proddashboards_prd-we-infrastructure_1642-30",
+      "DAI-GM5_mo360proddashboards_prd-we-data-processing_1642-31"
+    ]
+  }
+]
