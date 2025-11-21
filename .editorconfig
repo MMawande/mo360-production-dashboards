@@ -1,0 +1,17 @@
+# https://editorconfig.org/
+root = true
+
+# All files
+[*]
+
+# Encoding
+charset = utf-8
+
+# Identation
+indent_style = space
+tab_width = 2
+indent_size = 2
+
+# New line preferences
+end_of_line = crlf
+insert_final_newline = true

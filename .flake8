@@ -1,0 +1,31 @@
+[flake8]
+exclude =
+    # exclude hidden folders
+    .*/
+    **/.*/
+    # exclude resources & linked repositories (git subtree)
+    resources
+    **/resources
+    **/__pycache__,
+    __pycache__
+    **/node_modules
+
+extend-ignore =
+    # E722: Do not use bare 'except'
+    E722,
+    # H202: May be undefined erros because of Databricks and Spark
+    F405,
+    # F821: Undefined name because of Databricks and Spark
+    F821,
+    # F403: Unable to detect undefined names because of Databricks and Spark
+    F403,
+    # W605: Invalid escape sequence '\e' because of SMTP servers
+    W605,
+    F541,
+    #f-string is missing placeholders
+    F401
+    # imported but unused
+    E999
+
+max-complexity = 10
+max-line-length = 500

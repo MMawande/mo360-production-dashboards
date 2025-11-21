@@ -1,0 +1,6 @@
+# Linguist was excluding dbt models from the repo language statistics
+# and as a result the repo indicated that no SQL is present in the repo.
+# Information on overrides can be found here:
+# https://github.com/github/linguist/blob/master/docs/overrides.md
+*.sql linguist-language=SQL linguist-detectable
+*.proddshbrd.pbix filter=lfs diff=lfs merge=lfs -text
