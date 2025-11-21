@@ -1,0 +1,105 @@
+[
+  {
+    // westeurope_mo360dp_usecases_stageName.proddshbrd_01_emea_dbf_source_data
+    "region": "emea",
+    "parameter": "dbf-source-data",
+    "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+    "tables": [],
+    "volumes": []
+  },
+  {
+    // westeurope_mo360dp_usecases_stageName.proddshbrd_01_emea_dbf_ddx_data
+    "region": "emea",
+    "parameter": "dbf-ddx-data",
+    "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+    "tables": [],
+    "volumes": []
+  },
+  {
+    // westeurope_mo360dp_usecases_stageName.proddshbrd_01_emea_dbf_staging
+    "region": "emea",
+    "parameter": "dbf-staging",
+    "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+    "tables": [],
+    "volumes": []
+  },
+  {
+    // westeurope_mo360dp_usecases_stageName.proddshbrd_01_emea_dbf_transformation
+    "region": "emea",
+    "parameter": "dbf-transformation",
+    "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+    "tables": [],
+    "volumes": []
+  },
+  {
+    // westeurope_mo360dp_usecases_stageName.proddshbrd_01_emea_dbf_marts
+    "region": "emea",
+    "parameter": "dbf-marts",
+    "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+    "tables": [],
+    "volumes": []
+  },
+  {
+    // westeurope_mo360dp_usecases_stageName.proddshbrd_01_emea_dbf_mappings
+    "region": "emea",
+    "parameter": "dbf-mappings",
+    "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+    "tables": [
+      {
+        "tableName": "tb_einrichtpunkte_baureihe_dbf_0500",
+        //Location of the data for the external table
+        "relativeTablePath": "mapping/einrichtpunkte_baureihe_dbf_0500",
+        "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+        "format": "csv",
+        //Location of the schema definition inside your repo
+        "tableSchemaPath": "../mo360-production-dashboards/data-processing/mapping/schemas/einrichtpunkte_baureihe_dbf_0500/schema.json"
+      },
+      {
+        "tableName": "tb_einrichtpunkte_baureihe_dbf_0540",
+        //Location of the data for the external table
+        "relativeTablePath": "mapping/einrichtpunkte_baureihe_dbf_0540",
+        "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+        "format": "csv",
+        //Location of the schema definition inside your repo
+        "tableSchemaPath": "../mo360-production-dashboards/data-processing/mapping/schemas/einrichtpunkte_baureihe_dbf_0540/schema.json"
+      },
+      {
+        "tableName": "tb_einrichtpunkte_baureihe_dbf_0670",
+        //Location of the data for the external table
+        "relativeTablePath": "mapping/einrichtpunkte_baureihe_dbf_0670",
+        "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+        "format": "csv",
+        //Location of the schema definition inside your repo
+        "tableSchemaPath": "../mo360-production-dashboards/data-processing/mapping/schemas/einrichtpunkte_baureihe_dbf_0670/schema.json"
+      },
+      {
+        "tableName": "tb_einrichtpunkte_baureihe_dbf_1750",
+        //Location of the data for the external table
+        "relativeTablePath": "mapping/einrichtpunkte_baureihe_dbf_1750",
+        "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+        "format": "csv",
+        //Location of the schema definition inside your repo
+        "tableSchemaPath": "../mo360-production-dashboards/data-processing/mapping/schemas/einrichtpunkte_baureihe_dbf_1750/schema.json"
+      },
+      {
+        "tableName": "tb_einrichtpunkte_baureihe_dbf_1380",
+        //Location of the data for the external table
+        "relativeTablePath": "mapping/einrichtpunkte_baureihe_dbf_1380",
+        "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+        "format": "csv",
+        //Location of the schema definition inside your repo
+        "tableSchemaPath": "../mo360-production-dashboards/data-processing/mapping/schemas/einrichtpunkte_baureihe_dbf_1380/schema.json"
+      },
+      {
+        "tableName": "mapping_w054_assembly_dbf",
+        //Location of the data for the external table
+        "relativeTablePath": "mapping/mapping_w054_assembly_dbf",
+        "externalLocation": "processing@mbprodash{{ stageName }}weco{{ index }}adls",
+        "format": "csv",
+        //Location of the schema definition inside your repo
+        "tableSchemaPath": "../mo360-production-dashboards/data-processing/mapping/schemas/mapping_w054_assembly_dbf/schema.json"
+      }
+    ],
+    "volumes": []
+  }
+]
