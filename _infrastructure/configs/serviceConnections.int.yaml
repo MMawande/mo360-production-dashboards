@@ -1,0 +1,12 @@
+variables:
+  - name: serviceConnection
+    value: "INFRA_mo360proddashboards_INT" # TODO: ADO service connection for deployments
+    readonly: true
+
+  - name: aadServiceConnection
+    value: "INFRA_mo360proddashboards_AAD" # TODO: ADO service connection for AAD SP refresh
+    readonly: true
+
+  - name: dataprocServiceConnection # Add this with your newly provisoned data-processing service principal
+    value: "DATAPROC_mo360proddashboards_INT"
+    readonly: true
