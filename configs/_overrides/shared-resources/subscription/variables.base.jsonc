@@ -1,0 +1,38 @@
+{
+  "providerNamespaces": [
+    "Microsoft.Compute",
+    "Microsoft.Security",
+    "Microsoft.Capacity"
+  ],
+  "securityAlerts": {
+    "contactEmailAddressesArray": [
+      "dw_050-itocs_mo360dp-con-proddashboards@mercedes-benz.com" // TODO: Mail distribution group and teams email id
+    ],
+    "rolesForNotifications": [
+      {
+        "name": "Owner",
+        "enabled": "false"
+      },
+      {
+        "name": "Contributor",
+        "enabled": "false"
+      },
+      {
+        "name": "AccountAdmin",
+        "enabled": "true"
+      },
+      {
+        "name": "ServiceAdmin",
+        "enabled": "false"
+      }
+    ]
+  },
+  "quota": {
+    "region": "westeurope",
+    "regionalVcpuQuotaLimitInNumber": ""
+  },
+    "tags": {
+    "cocName": "ITO/CP",
+    "costCenter": "3050-5833"
+  }
+}
