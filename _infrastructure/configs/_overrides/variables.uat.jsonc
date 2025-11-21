@@ -1,0 +1,12 @@
+{
+  "subscriptionId": "42649d1d-f1ba-414a-97fd-cc9fe6f0189b", // TODO: Subscription ID from Portal
+  "mountingServicePrincipalName": "DAI-GM5_mo360proddashboards_uat-we-databricks_1642-29",
+  "byokKeyName": "proddshbrd", // TODO: Name of the BYOK key provided in the key-vault
+  // CHANGE: Change demo email addresses! pipeline will fail if defaults are configured
+  "emailAddressServiceIssues": "8ae5f2a1.corpdir.onmicrosoft.com@emea.teams.ms",
+  "emailAddressPlannedMaintenance": "8ae5f2a1.corpdir.onmicrosoft.com@emea.teams.ms",
+  "emailAddressHealthAdvisory": "8ae5f2a1.corpdir.onmicrosoft.com@emea.teams.ms",
+  "emailAddressSecurityAdvisory": "8ae5f2a1.corpdir.onmicrosoft.com@emea.teams.ms",
+  "emailAddressResourceHealth": "8ae5f2a1.corpdir.onmicrosoft.com@emea.teams.ms",
+  "emailAddressLawIngestionMonitoring": "8ae5f2a1.corpdir.onmicrosoft.com@emea.teams.ms"
+}
