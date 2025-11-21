@@ -1,0 +1,9 @@
+---
+steps:
+  - task: AzureKeyVault@2
+    displayName: "Read secrets from production dashboards"
+    inputs:
+      connectedServiceName: ARM_mo360proddashboards_PRD
+      keyVaultName: proddashboards
+      secretsFilter: '*'
+      runAsPreJob: true
