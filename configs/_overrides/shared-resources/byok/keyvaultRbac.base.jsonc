@@ -1,9 +1,0 @@
-[
-  {
-    "roleName": "Key Vault Crypto Officer",
-    "principalIds": [
-      "DAI-GC3_eXtollo-projects_Daimler-BYOK-Service_0078-285",
-      "fc0e9b1d-d7b6-4b8d-922f-41ab2d2c3fd8" // AL#CSPX_MO360SF2.PPU_productionDashboards_isInfrastructureAdmin
-    ]
-  }
-]

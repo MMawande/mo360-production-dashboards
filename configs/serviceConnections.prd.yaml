@@ -1,8 +1,0 @@
-variables:
-  - name: serviceConnection
-    value: "ARM_mo360proddashboards_PRD" # TODO: ADO service connection for deployments
-    readonly: true
-
-  - name: aadServiceConnection
-    value: "ARM_mo360proddashboards_AAD" # TODO: ADO service connection for AAD SP refresh
-    readonly: true
