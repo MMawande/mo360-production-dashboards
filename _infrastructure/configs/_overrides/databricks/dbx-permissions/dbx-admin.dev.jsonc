@@ -1,0 +1,95 @@
+[
+  {
+    "aadGroupNames": [
+      "AL_MO360SF2.productionDashboards_dbx-admin-dev"
+    ],
+    "servicePrincipalNames": [],
+    "entitlements": [
+      "allow-instance-pool-create",
+      "workspace-access",
+      "allow-cluster-create",
+      "databricks-sql-access"
+    ],
+    "sqlEndpoints": [
+      {
+        "name": "proddshbrd-sql-endpoint-{{ index }}",
+        "permission": "CAN_MANAGE"
+      }
+    ],
+    "clusterPolicies": [
+      {
+        "name": "mo360dp-proddshbrd-single-user-job-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-dedicated-job-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-dedicated-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-standard-compute",
+        "permission": "CAN_USE"
+      }
+    ],
+    "clusters": [
+      {
+        "name": "dedicted-cluster-{{ index }}",
+        "permission": "CAN_MANAGE"
+      },
+            {
+        "name": "shared-cluster-{{ index }}",
+        "permission": "CAN_MANAGE"
+      }
+    ],
+    "workspaces": [
+      {
+        "name": "data-pipelines",
+        "permission": "CAN_MANAGE"
+      },
+      {
+        "name": "mo_utils",
+        "permission": "CAN_MANAGE"
+      },
+      {
+        "name": "mounts",
+        "permission": "CAN_MANAGE"
+      }
+    ],
+    "secretScopes": [
+      "proddshbrd-fabric-user",
+      "proddshbrd-databricks-etl",
+      "dqf-api-key"
+    ],
+    "hiveCatalogs": [],
+    "dashboards": [
+      {
+        "fileName": "job-cost-and-performance",
+        "permissions": [
+          "CAN_MANAGE"
+        ]
+      }
+    ],
+    "externalLocations": [
+      {
+        "storageGroupFilePath": "containers.jsonc",
+        "permissions": [
+          "ALL PRIVILEGES",
+          "MANAGE"
+        ]
+      }
+    ],
+    "unitySchemas": [
+      {
+        "schemaGroupFilePath": "unity-schemas-usecase/proddshbrd.jsonc",
+        "permissions": [
+          "ALL PRIVILEGES",
+          "MANAGE"
+        ]
+      }
+    ],
+    "jobPermissionScope": "CAN_MANAGE_RUN"
+  }
+]
