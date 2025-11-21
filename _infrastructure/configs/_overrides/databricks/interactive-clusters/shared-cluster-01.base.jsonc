@@ -1,0 +1,14 @@
+{
+  "cluster_name": "shared-cluster-{{ index }}",
+  // policy_name will be mapped to a policy_id by the deployment pipelines
+  "policy_name": "mo360dp-proddshbrd-standard-compute",
+  // Allow default settings in cluster policy to be set.
+  "apply_policy_default_values": true,
+  "custom_tags": {
+    "jobOwner": "proddshbrd",
+    "jobPurpose": "development/debug",
+    "purpose": "development & debug"
+  },
+  "autotermination_minutes": 30,
+  "enable_elastic_disk": false
+}
