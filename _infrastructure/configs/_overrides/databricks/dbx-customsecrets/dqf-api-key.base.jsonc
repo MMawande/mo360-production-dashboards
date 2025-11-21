@@ -1,0 +1,8 @@
+[
+  {
+      "secretScopeName": "dqf-api-key",
+      "customSecretNames": [
+          "proddshbrd-consume-oneapi-key-dqf"
+      ]
+  }
+]
