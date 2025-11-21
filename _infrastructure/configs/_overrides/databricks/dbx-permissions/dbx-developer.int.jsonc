@@ -1,0 +1,95 @@
+[
+  {
+    "aadGroupNames": [
+      "AL_MO360SF2.productionDashboards_dbx-developer-int"
+    ],
+    "servicePrincipalNames": [
+      "DAI-GM5_mo360proddashboards_int-we-infrastructure_1642-22",
+      "DAI-GM5_mo360proddashboards_int-we-fabric_1642-24",
+      "DAI-GM5_mo360proddashboards_int-we-powerbi_1642-15"
+    ],
+    "entitlements": [
+      "workspace-access",
+      "databricks-sql-access"
+    ],
+    "sqlEndpoints": [
+      {
+        "name": "proddshbrd-sql-endpoint-{{ index }}",
+        "permission": "CAN_USE"
+      }
+    ],
+    "clusterPolicies": [
+      {
+        "name": "mo360dp-proddshbrd-single-user-job-compute",
+        "permission": "CAN_USE"
+      },
+            {
+        "name": "mo360dp-proddshbrd-dedicated-job-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-dedicated-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-standard-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "proddshbrd-dbdemos-jobs-compute",
+        "permission": "CAN_USE"
+      }
+    ],
+    "clusters": [
+      {
+        "name": "dedicted-cluster-{{ index }}",
+        "permission": "CAN_RESTART"
+      },
+      {
+        "name": "shared-cluster-{{ index }}",
+        "permission": "CAN_RESTART"
+      }
+    ],
+    "workspaces": [
+      {
+        "name": "data-pipelines",
+        "permission": "CAN_MANAGE"
+      },
+      {
+        "name": "mo_utils",
+        "permission": "CAN_MANAGE"
+      }
+    ],
+    "secretScopes": [
+      "proddshbrd-fabric-user",
+      "proddshbrd-databricks-etl",
+      "dqf-api-key"
+    ],
+    "hiveCatalogs": [],
+    "dashboards": [
+      {
+        "fileName": "job-cost-and-performance",
+        "permissions": [
+          "CAN_MANAGE"
+        ]
+      }
+    ],
+    "externalLocations": [
+      {
+        "storageGroupFilePath": "containers.jsonc",
+        "permissions": [
+          "ALL PRIVILEGES"
+        ]
+      }
+    ],
+    "unitySchemas": [
+      {
+        "schemaGroupFilePath": "unity-schemas-usecase/proddshbrd.jsonc",
+        "permissions": [
+          "ALL PRIVILEGES"
+        ]
+      }
+    ],
+    "jobPermissionScope": "CAN_MANAGE"
+  }
+]

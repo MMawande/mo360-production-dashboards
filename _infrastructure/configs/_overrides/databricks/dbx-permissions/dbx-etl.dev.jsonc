@@ -1,0 +1,80 @@
+[
+  {
+    "aadGroupNames": [],
+    "servicePrincipalNames": [
+      "DAI-GM5_mo360proddashboards_dev-we-data-processing_1642-19"
+    ],
+    "entitlements": [
+      "workspace-access",
+      "databricks-sql-access"
+    ],
+    "sqlEndpoints": [
+      {
+        "name": "proddshbrd-sql-endpoint-{{ index }}",
+        "permission": "CAN_USE"
+      }
+    ],
+    "clusterPolicies": [
+      {
+        "name": "mo360dp-proddshbrd-single-user-job-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-dedicated-job-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "mo360dp-proddshbrd-standard-compute",
+        "permission": "CAN_USE"
+      },
+      {
+        "name": "proddshbrd-dbdemos-jobs-compute",
+        "permission": "CAN_USE"
+      }
+    ],
+    "clusters": [
+      {
+        "name": "dedicted-cluster-{{ index }}",
+        "permission": "CAN_MANAGE"
+      },
+      {
+        "name": "shared-cluster-{{ index }}",
+        "permission": "CAN_MANAGE"
+      }
+    ],
+    "workspaces": [
+      {
+        "name": "data-pipelines",
+        "permission": "CAN_MANAGE"
+      },
+      {
+        "name": "mo_utils",
+        "permission": "CAN_MANAGE"
+      }
+    ],
+    "secretScopes": [
+      "proddshbrd-proxy-sql-user",
+      "proddshbrd-proxy-sql-etl"
+    ],
+    "hiveCatalogs": [],
+    "externalLocations": [
+      {
+        "storageGroupFilePath": "containers.jsonc",
+        "permissions": [
+          "ALL PRIVILEGES"
+        ]
+      }
+    ],
+    "unitySchemas": [
+      {
+        "schemaGroupFilePath": "unity-schemas-usecase/proddshbrd.jsonc",
+        "permissions": [
+          "ALL PRIVILEGES",
+          "MANAGE",
+          "USE SCHEMA"
+        ]
+      }
+    ],
+    "jobPermissionScope": "CAN_MANAGE_RUN"
+  }
+]

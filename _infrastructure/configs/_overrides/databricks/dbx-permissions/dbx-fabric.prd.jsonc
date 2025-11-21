@@ -1,0 +1,9 @@
+[
+  {
+    // Proxy-SP is used to connect to the proxy but also for connecting PowerBI to the Use-Case DBX.
+    // For that, it needs to have access to the sql-cluster and the gold layer.
+    "servicePrincipalNames": [
+      "DAI-GM5_mo360proddashboards_prd-we-fabric_1642-32"
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "aadGroupNames": [],
+    "servicePrincipalNames": [],
+    "entitlements": [
+      "databricks-sql-access"
+    ],
+    "sqlEndpoints": [
+      {
+        "name": "proddshbrd-sql-endpoint-{{ index }}",
+        "permission": "CAN_USE"
+      }
+    ],
+    "clusters": [],
+    "workspaces": [],
+    "secretScopes": [
+      "proddshbrd-fabric-user"
+    ],
+    "hiveCatalogs": [],
+    "externalLocations": [],
+    "unitySchemas": [
+      {
+        "schemaGroupFilePath": "unity-schemas-usecase/proddshbrd.jsonc",
+        "permissions": [
+          "USE SCHEMA",
+          "SELECT"
+        ]
+      }
+    ],
+    "jobPermissionScope": "CAN_VIEW"
+  }
+]
