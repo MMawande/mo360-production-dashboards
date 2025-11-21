@@ -1,0 +1,4 @@
+[
+  "DAI-GM5_mo360proddashboards_int-we-fabric_1642-24", // TODO: SP for connecting Power-BI ADO pipelines to use-case DBX
+  "AL_MO360SF2.productionDashboards_dbx-developer-int" //Added to grant emea users read access to the databricks workspace so they can directly launch the workspace via the portal.
+]
