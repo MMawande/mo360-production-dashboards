@@ -1,0 +1,133 @@
+name: $(Build.DefinitionName)_$(rev:r)
+
+parameters:
+  - name: deletionScope
+    type: string
+    default: Nothing
+    values:
+      - Nothing
+      - KV-Secrets
+      - DBX-Workspace
+      - "DBX-Workspace and ADLS-Containers"
+      - DBX-ResourceGroup
+      - All
+  - name: sharedDeletionScope
+    type: string
+    default: Nothing
+    values:
+      - Nothing
+      - All
+  - name: validateConfigs
+    type: boolean
+    default: true
+  - name: configureSubscription
+    type: boolean
+    default: true
+  - name: deploySharedInfra
+    type: boolean
+    default: true
+  - name: deploySharedByok
+    type: boolean
+    default: true
+  - name: deployDiagnostics
+    type: boolean
+    default: true
+  - name: deployInfra
+    type: boolean
+    default: true
+  - name: refreshSpSecrets
+    type: boolean
+    default: true
+  - name: configureNetwork
+    type: boolean
+    default: true
+  - name: deployConfig
+    type: boolean
+    default: true
+  - name: deployCustom
+    type: boolean
+    default: true
+  - name: publishReport
+    type: boolean
+    default: true
+  - name: configureDataset
+    type: boolean
+    default: true
+  - name: setWorkspaceAccess
+    type: boolean
+    default: true
+  - name: cleanupSpSecrets
+    type: boolean
+    default: true
+
+  - name: index
+    type: string
+    default: "01"
+
+trigger: none
+
+pr: none
+
+resources:
+  repositories:
+    - repository: self
+    - repository: mo360dp-template
+      type: githubenterprise
+      name: mo360cloudplatform/mo360dp-template
+      endpoint: GIT_MO360DP_SF_ORGA_GHEC
+      ref: refs/tags/v6.0.0
+    - repository: mo360dp-system
+      type: githubenterprise
+      name: mo360cloudplatform/mo360dp-system
+      endpoint: GIT_MO360DP_SF_ORGA_GHEC
+      ref: main
+
+stages:
+  - template: data-instance-infrastructure/pipelines/templates-ado/deploy-all-stages.yaml@mo360dp-template
+    parameters:
+      stages:
+        - name: dev
+        - name: int
+        - name: uat
+        - name: prd
+      configRelativePath: _infrastructure/configs
+      mappingRelativePath: data-processing/mapping
+
+      repoRootPath: $(Pipeline.Workspace)/s/mo360-production-dashboards
+      templateRootPath: $(Pipeline.Workspace)/s/mo360dp-template
+      systemRootPath: $(Pipeline.Workspace)/s/mo360dp-system
+
+      customImportRelativePath: data-processing/data-pipeline
+
+      # Paths to processing configs
+      dataInstanceProcessingRepoName: self
+      dataInstanceProcessingRootPath: $(Pipeline.Workspace)/s/mo360-production-dashboards
+      dataInstanceProcessingConfigRelativePath: data-processing/configs
+
+      # Paths to infrastructure configs
+      dataInstanceInfrastructureRepoName: self
+      dataInstanceInfrastructureRootPath: $(Pipeline.Workspace)/s/mo360-production-dashboards
+      dataInstanceInfrastructureConfigRelativePath: _infrastructure/configs
+
+      customJobDefinitionDeployOnlyList: dbdemos-dashboard-job-non-run,
+      customJobDefinitionDeployAndRunList: proddshbrd-etl-job-v1
+
+      deletionScope: ${{ parameters.deletionScope }}
+      sharedDeletionScope: ${{ parameters.sharedDeletionScope }}
+      validateConfigs: ${{ parameters.validateConfigs }}
+      configureSubscription: ${{ parameters.configureSubscription }}
+      deploySharedInfra: ${{ parameters.deploySharedInfra }}
+      deploySharedByok: ${{ parameters.deploySharedByok }}
+      deployDiagnostics: ${{ parameters.deployDiagnostics }}
+      deployInfra: ${{ parameters.deployInfra }}
+      refreshSpSecrets: ${{ parameters.refreshSpSecrets }}
+      configureNetwork: ${{ parameters.configureNetwork }}
+      deployConfig: ${{ parameters.deployConfig }}
+      cleanupSpSecrets: ${{ parameters.cleanupSpSecrets }}
+      deployCustom: ${{ parameters.deployCustom }}
+      publishReport: ${{ parameters.publishReport }}
+      configureDataset: ${{ parameters.configureDataset }}
+      setWorkspaceAccess: ${{ parameters.setWorkspaceAccess }}
+
+      index: ${{ parameters.index }}
+      customJobPipelineTimeoutInMinutes: 180
