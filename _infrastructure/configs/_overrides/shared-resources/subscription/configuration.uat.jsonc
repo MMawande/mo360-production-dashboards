@@ -1,0 +1,53 @@
+{
+  "costAlertEmailAddress": "dw_050-itocs_mo360dp-con-proddashboards@mercedes-benz.com",
+  "costAlert": {
+    "monthlyBudgetCap": 500,
+    "budgetThresholdForNotificationInPercentage": 100,
+    "contactEmailsArray": [
+      "dw_050-itocs_mo360dp-con-proddashboards@mercedes-benz.com"
+    ]
+  },
+  "rbac": [
+    {
+      "principalId": "DAI-GM5_mo360proddashboards_uat-we-infrastructure_1642-26", //TODO: ARM Service Principal
+      "roles": [
+        "Contributor",
+        "User Access Administrator"
+      ]
+    },
+    {
+      "principalId": "f1bfd7bc-d3cb-4d7f-95f0-2f401fad3208",   // AL#CSTX_MO360SF2.TPU_productionDashboards_isInfrastructureDeveloper
+      "roles": [
+        "Contributor"
+      ]
+    },
+    {
+      "principalId": "fc0e9b1d-d7b6-4b8d-922f-41ab2d2c3fd8", // AL#CSPX_MO360SF2.PPU_productionDashboards_isInfrastructureAdmin
+      "roles": [
+        "Contributor",
+        "User Access Administrator",
+        "Storage Blob Data Reader",
+        "Storage Blob Data Contributor",
+        "Cost Management Reader"
+      ]
+    },
+    {
+      "principalId": "AL#CSTX_MO360DP.TPU_isCoreInfrastructureDeveloper", //don't change
+      "roles": [
+        "Reader"
+      ]
+    },
+    {
+      "principalId": "fc0e9b1d-d7b6-4b8d-922f-41ab2d2c3fd8", // AL#CSPX_MO360SF2.PPU_productionDashboards_isInfrastructureAdmin
+      "roles": [
+        "Reader"
+      ]
+    },
+    {
+      "principalId": "DAI-GM5_mo360proddashboards_uat-we-data-processing_1642-27", // Data procesing SP
+      "roles": [
+        "Reader"
+      ]
+    }
+  ]
+}
