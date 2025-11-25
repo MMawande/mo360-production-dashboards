@@ -60,5 +60,6 @@ For all environments, we use a single index to develop features:
 4. Test the report in the PR-Workspace.
 5. After testing, revert the `workspaceName` in the config files to dev, commit, and push the changes.
 
-Main contact is
-Mawanda Mbaza 175 & Nora Ocros 050
+Main Developer & Data Engineer is
+Mawanda Mbaza 175 & Nora Ocros 050 from Sindelfingen is the Product Owner from busines side
+
