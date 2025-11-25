@@ -1,0 +1,42 @@
+name: $(Build.DefinitionName)_$(rev:r)
+
+parameters:
+
+  - name: stageName
+    type: string
+
+  - name: armServicePrincipal
+    type: string
+
+  - name: dataprocessingServicePrincipal
+    type: string
+
+  - name: infrastructureServicePrincipal
+    type: string
+
+
+trigger: none
+
+pr: none
+
+resources:
+  repositories:
+    - repository: self
+    - repository: mo360dp-template
+      type: githubenterprise
+      name: mo360cloudplatform/mo360dp-template
+      endpoint: GIT_MO360DP_SF_ORGA_GHEC
+      ref: main
+
+stages:
+  - template: common/pipelines/templates-ado/migrate-consume-resources.yaml@mo360dp-template
+    parameters:
+      indexes:
+        - "01"
+      stageName: ${{ parameters.stageName }}
+      repoRootPath: $(Pipeline.Workspace)/s/mo360-production-dashboards
+      templateRootPath: $(Pipeline.Workspace)/s/mo360dp-template
+      configRelativePath: configs
+      infrastructureServicePrincipal: ${{ parameters.infrastructureServicePrincipal }}
+      dataprocessingServicePrincipal: ${{ parameters.dataprocessingServicePrincipal }}
+      armServicePrincipal: ${{ parameters.armServicePrincipal }}
