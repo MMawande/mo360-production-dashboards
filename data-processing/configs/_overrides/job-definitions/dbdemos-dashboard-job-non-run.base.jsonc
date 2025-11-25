@@ -1,0 +1,46 @@
+{
+  "name": "dbdemos-dashboard-job-non-run",
+  "tags": {
+    "jobOwner": "proddshbrd",
+    "jobPurpose": "ETL-cost",
+    "jobName": "dbdemos-dashboard-job-non-run"
+  },
+  "job_clusters": [
+    {
+      "job_cluster_key": "main_cluster",
+      "new_cluster": {
+        // policy_name will be mapped to a policy_id by the deployment pipelines
+        "policy_name": "proddshbrd-dbdemos-jobs-compute",
+        "apply_policy_default_values": true,
+        "custom_tags": {
+          "jobOwner": "proddshbrd",
+          "jobPurpose": "dbdemos-dashboard"
+        },
+        "cluster_log_conf": {
+          "dbfs": {
+            "destination": "dbfs:/cluster_logs"
+          }
+        },
+        "enable_elastic_disk": false
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "task_key": "dbdemos",
+      "job_cluster_key": "main_cluster",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/dashboards/dbdemos/main",
+        "base_parameters": {}
+      },
+      "timeout_seconds": 2400,
+      "max_retries": 0
+    }
+  ],
+  "email_notifications": {
+    "on_start": [],
+    "on_success": [],
+    "on_failure": [],
+    "no_alert_for_skipped_runs": false
+  }
+}
