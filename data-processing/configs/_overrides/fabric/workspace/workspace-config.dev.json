@@ -1,0 +1,44 @@
+{
+  "accessAssignments": [
+    {
+      "roleName": "Admin",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-owner-dev",
+          "type": "Group",
+          "identifier": "bf5103d5-c31d-49e4-8891-714c0092f026"
+        }
+      ]
+    },
+    {
+      "roleName": "Contributor",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-contributor-dev",
+          "type": "Group",
+          "identifier": "f8d78796-2d33-43e0-8013-1753a94d3098"
+        }
+      ]
+    },
+    {
+      "roleName": "Member",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-member-dev",
+          "type": "Group",
+          "identifier": "b2f9bd17-2132-4d86-9ef8-423c43bfe47b"
+        }
+      ]
+    },
+    {
+      "roleName": "Viewer",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-viewer-dev",
+          "type": "Group",
+          "identifier": "c1c4d83f-7d13-4107-8547-8c1a66757d7a"
+        }
+      ]
+    }
+  ]
+}

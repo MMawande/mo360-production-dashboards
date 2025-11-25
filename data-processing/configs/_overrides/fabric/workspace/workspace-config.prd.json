@@ -1,0 +1,54 @@
+{
+  "accessAssignments": [
+    {
+      "roleName": "Admin",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-owner-prd",
+          "type": "Group",
+          "identifier": "b6091027-8d70-4bb6-af5d-a7148224d93d"
+        }
+      ]
+    },
+    {
+      "roleName": "Contributor",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-contributor-prd",
+          "type": "Group",
+          "identifier": "fc092763-3ce9-4e42-86b4-717cff6058c0"
+        }
+      ]
+    },
+    {
+      "roleName": "Member",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-member-prd",
+          "type": "Group",
+          "identifier": "f282ab3d-5f5c-4f6f-9fdf-dc006baaf449"
+        }
+      ]
+    },
+    {
+      "roleName": "Viewer",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_powerbi-workspace-viewer-prd",
+          "type": "Group",
+          "identifier": "f177e997-8648-4aa7-9635-ef0a61a0e23d"
+        }
+      ]
+    },
+    {
+      "roleName": "Viewer",
+      "roleMembers": [
+        {
+          "name": "AL_MO360SF2.productionDashboards_tuscaloosa_user_powerbi-workspace-viewer-prd",
+          "type": "Group",
+          "identifier": "1f4b43ee-9e9b-4ade-8af9-6b04c21c8e19"
+        }
+      ]
+    }
+  ]
+}
