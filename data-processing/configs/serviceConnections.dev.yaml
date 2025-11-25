@@ -1,0 +1,4 @@
+variables:
+  - name: dataprocServiceConnection
+    value: "DATAPROC_mo360proddashboards_DEV" # TODO: ADO service connection for deployments
+    readonly: true
