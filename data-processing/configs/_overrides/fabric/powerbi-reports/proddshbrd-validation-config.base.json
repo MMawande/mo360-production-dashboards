@@ -1,0 +1,42 @@
+{
+  "workspaceName": "fabric-proddshbrd-{{ stageName }}",
+  "keyVault": {
+    "secretIdentity": "proddshbrd-fabric-client-id",
+    "secretPassword": "proddshbrd-fabric-client-secret"
+  },
+  "report": {
+    "name": "validation-{{ index }}",
+    "path":"mo360-production-dashboards/data-processing/proddshbrd-report/v2/validation.pbix",
+    "dataSources": [
+      {
+        "resourceId": "/subscriptions/{{ subscriptionId }}/resourceGroups/mb-{{ projectShort }}-{{ stageName }}-{{ regionShortCode }}-{{ purpose }}-{{ index }}-rg/providers/Microsoft.Databricks/workspaces/mb-{{ projectShort }}-{{ stageName }}-{{ regionShortCode }}-{{ purpose }}-{{ index }}-dbw",
+        "endpoint": "proddshbrd-sql-endpoint-{{ index }}",
+        "clientIdSecretName": "proddshbrd-fabric-client-id",
+        "clientSecretSecretName": "proddshbrd-fabric-client-secret",
+        "parameters": [
+          {
+            "name": "dbx-secretendpoint-url",
+            "type": "computed"
+          },
+          {
+            "name": "dbx-secretendpoint-path",
+            "type": "computed"
+          },
+          {
+            "name": "dbx-secretendpoint-catalog",
+            "value": "westeurope_mo360dp_usecases_{{ stageName }}"
+          },
+          {
+            "name": "dbx-secretendpoint-schema",
+            "value": "proddshbrd_{{ index }}_emea_dbf_marts"
+          }
+        ]
+      }
+    ],
+    "refreshTimes": [],
+    "refreshDays": [],
+    "refreshTimeZone": "W. Europe Standard Time",
+    "refreshLengthInSeconds": 1800,
+    "isReportRefreshedAfterDeployment": true
+  }
+}
