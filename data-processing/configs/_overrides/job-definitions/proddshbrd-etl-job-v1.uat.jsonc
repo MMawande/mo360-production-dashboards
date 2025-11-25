@@ -1,0 +1,185 @@
+{
+  "name": "proddshbrd-etl-job-v1",
+  "email_notifications": {
+    "no_alert_for_skipped_runs": false,
+    "on_failure": [
+      "dw_050-itocs_mo360dp-con-proddashboards@mercedes-benz.com"
+    ]
+  },
+  "tags": {
+    "jobOwner": "proddshbrd",
+    "jobPurpose": "ETL",
+    "jobName": "proddshbrd-etl-job-v1"
+  },
+  // "schedule": {
+  //   "quartz_cron_expression": "58 0 5 * * ?",
+  //   "timezone_id": "Europe/Amsterdam",
+  //   "pause_status": "UNPAUSED"
+  // },
+  "job_clusters": [
+    {
+      "job_cluster_key": "main_cluster",
+      "new_cluster": {
+        // policy_name will be mapped to a policy_id by the deployment pipelines
+        "policy_name": "mo360dp-proddshbrd-single-user-job-compute",
+        "apply_policy_default_values": true,
+        "custom_tags": {
+          "jobOwner": "proddshbrd",
+          "jobPurpose": "proddshbrd-ETL"
+        },
+        "cluster_log_conf": {
+          "dbfs": {
+            "destination": "dbfs:/cluster_logs"
+          }
+        },
+        "enable_elastic_disk": false
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "task_key": "04_py_date_dimensions",
+      "job_cluster_key": "main_cluster",
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/300_processing/04_py_date_dimensions",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    },
+    {
+      "task_key": "00_py_ddx_source_data",
+      "job_cluster_key": "main_cluster",
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/100_connect_data/00_py_ddx_source_data",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    },
+    {
+      "task_key": "01_py_ddx_transform",
+      "job_cluster_key": "main_cluster",
+      "depends_on": [
+        {
+          "task_key": "00_py_ddx_source_data"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/300_processing/01_py_ddx_transform",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    },
+    {
+      "task_key": "02_py_staging",
+      "job_cluster_key": "main_cluster",
+      "depends_on": [
+        {
+          "task_key": "00_py_ddx_source_data"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/dbf_gold/02_py_staging/driver_02_py_staging",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    },
+    {
+      "task_key": "03_py_transformation",
+      "job_cluster_key": "main_cluster",
+      "depends_on": [
+        {
+          "task_key": "01_py_ddx_transform"
+        },
+        {
+          "task_key": "02_py_staging"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/dbf_gold/03_py_transformation/driver_03_py_transformation",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    },
+    {
+      "task_key": "04_py_mrt",
+      "job_cluster_key": "main_cluster",
+      "depends_on": [
+        {
+          "task_key": "01_py_ddx_transform"
+        },
+        {
+          "task_key": "03_py_transformation"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/dbf_gold/04_py_marts/driver_04_py_mrt",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    }
+    /*
+    {
+      "task_key": "05_py_powerbi",
+      "job_cluster_key": "main_cluster",
+      "depends_on": [
+        {
+          "task_key": "03_py_transformation"
+        },
+        {
+          "task_key": "04_py_mrt"
+        },
+        {
+          "task_key": "04_py_date_dimensions"
+        }
+      ],
+      "run_if": "ALL_SUCCESS",
+      "notebook_task": {
+        "notebook_path": "/Workspace/data-pipelines/v1/400_goldlayer/05_py_powerbi",
+        "base_parameters": {
+          "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
+          "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-uat.jsonc",
+          "env_stage": "uat"  // 👈 override widget value here
+        }
+      },
+      "timeout_seconds": 0,
+      "max_retries": 0
+    }
+      */
+  ]
+}
