@@ -1,0 +1,34 @@
+{
+  "constants": [
+    {
+      "keys": [
+        "cut_off_date_in_days"
+      ],
+      "value": 31
+    },
+    {
+      "keys": [
+        "usecaseName"
+      ],
+      "value": "proddshbrd"
+    },
+    {
+      "keys": [
+        "fabric_workspace_name"
+      ],
+      "value": "fabric-proddshbrd-uat"
+    },
+    {
+      "keys": [
+        "fabric_report_name"
+      ],
+      "value": "validation-{{ index }}"
+    },
+    {
+      "keys": [
+        "sql_endpoint_name"
+      ],
+      "value": "proddshbrd-sql-endpoint-{{ index }}"
+    }
+  ]
+}
