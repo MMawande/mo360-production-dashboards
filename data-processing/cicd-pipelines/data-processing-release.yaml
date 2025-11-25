@@ -1,0 +1,63 @@
+name: $(Build.DefinitionName)_$(rev:r)
+
+parameters:
+
+  - name: deployCustom
+    type: boolean
+    default: true
+  - name: publishReport
+    type: boolean
+    default: true
+  - name: configureDataset
+    type: boolean
+    default: true
+  - name: setWorkspaceAccess
+    type: boolean
+    default: true
+
+  - name: index
+    type: string
+    default: "01"
+
+trigger: none
+
+pr: none
+
+resources:
+  repositories:
+    - repository: self
+    - repository: mo360dp-template
+      type: githubenterprise
+      name: mo360cloudplatform/mo360dp-template
+      endpoint: GIT_MO360DP_SF_ORGA_GHEC
+      ref: refs/tags/v6.0.0
+
+stages:
+  - template: data-instance-processing/pipelines/templates-ado/deploy-all-stages.yaml@mo360dp-template
+    parameters:
+      stages:
+        - name: dev
+        - name: int
+        - name: uat
+        - name: prd
+
+      repoRootPath: $(Pipeline.Workspace)/s/mo360-production-dashboards
+      templateRootPath: $(Pipeline.Workspace)/s/mo360dp-template
+
+      configRelativePath: data-processing/configs
+      customImportRelativePath: data-processing/data-pipelines
+
+      dataInstanceInfrastructureRepoName: self
+      dataInstanceInfrastructureRootPath: $(Pipeline.Workspace)/s/mo360-production-dashboards
+      dataInstanceInfrastructureConfigRelativePath: _infrastructure/configs
+
+      customJobDefinitionDeployOnlyList: dbdemos-dashboard-job-non-run,
+      customJobDefinitionDeployAndRunList: proddshbrd-etl-job-v1
+
+      deployCustom: ${{ parameters.deployCustom }}
+      publishReport: ${{ parameters.publishReport }}
+      configureDataset: ${{ parameters.configureDataset }}
+      setWorkspaceAccess: ${{ parameters.setWorkspaceAccess }}
+
+      index: ${{ parameters.index }}
+      customJobPipelineTimeoutInMinutes: 240
