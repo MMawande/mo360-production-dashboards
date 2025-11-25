@@ -1,0 +1,148 @@
+{
+  "usecaseName": "mo360-production-dashboards",
+  "inputData": [
+    {
+      "name": "mapping",
+      "tables": [
+        {
+          "key": "einrichtpunkte_baureihe_dbf_0500",
+          "catalogName": "westeurope_mo360dp_usecases_{{ stageName }}",
+          "schemaName": "{{ projectName }}_{{ index }}_emea_dbf-mapping",
+          "tableName": "tb_einrichtpunkte_baureihe_dbf_0500",
+          "type": "table"
+        },
+        {
+          "key": "einrichtpunkte_baureihe_dbf_0500",
+          "catalogName": "westeurope_mo360dp_usecases_{{ stageName }}",
+          "schemaName": "{{ projectName }}_{{ index }}_emea_dbf-mapping",
+          "tableName": "tb_einrichtpunkte_baureihe_dbf_0540",
+          "type": "table"
+        },
+        {
+          "key": "einrichtpunkte_baureihe_dbf_0500",
+          "catalogName": "westeurope_mo360dp_usecases_{{ stageName }}",
+          "schemaName": "{{ projectName }}_{{ index }}_emea_dbf-mapping",
+          "tableName": "tb_einrichtpunkte_baureihe_dbf_0670",
+          "type": "table"
+        },
+        {
+          "key": "einrichtpunkte_baureihe_dbf_0500",
+          "catalogName": "westeurope_mo360dp_usecases_{{ stageName }}",
+          "schemaName": "{{ projectName }}_{{ index }}_emea_dbf-mapping",
+          "tableName": "tb_einrichtpunkte_baureihe_dbf_1750",
+          "type": "table"
+        },
+        {
+          "key": "einrichtpunkte_baureihe_dbf_0500",
+          "catalogName": "westeurope_mo360dp_usecases_{{ stageName }}",
+          "schemaName": "{{ projectName }}_{{ index }}_emea_dbf-mapping",
+          "tableName": "tb_einrichtpunkte_baureihe_dbf_1380",
+          "type": "table"
+        },
+        {
+          "key": "mapping_w054_assembly_dbf",
+          "catalogName": "westeurope_mo360dp_usecases_{{ stageName }}",
+          "schemaName": "{{ projectName }}_{{ index }}_emea_dbf-mapping",
+          "tableName": "mapping_w054_assembly_dbf",
+          "type": "table"
+        }
+      ]
+    }
+  ],
+  "constants": [
+    {
+      "keys": [
+        "usecaseCatalog"
+      ],
+      "value": "westeurope_mo360dp_usecases_{{ stageName }}"
+    },
+    {
+      "keys": [
+        "usecaseSchema"
+      ],
+      "value": "proddshbrd_{{ index }}_emea_dbf_marts"
+    },
+    {
+      "keys": [
+        "cut_off_date_in_days"
+      ],
+      "value": 31
+    },
+    {
+      "keys": [
+        "runtime_seconds_exec_pre"
+      ],
+      "value": 3600
+    },
+    {
+      "keys": [
+        "runtime_seconds_processing"
+      ],
+      "value": 1800
+    },
+    {
+      "keys": [
+        "runtime_seconds_gold_layer"
+      ],
+      "value": 3600
+    },
+    {
+      "keys": [
+        "runtime_seconds_exec_post"
+      ],
+      "value": 3600
+    },
+    {
+      "keys": [
+        "retention_in_hours"
+      ],
+      "value": 720
+    },
+    {
+      "keys": [
+        "usecaseName"
+      ],
+      "value": "proddshbrd"
+    },
+    {
+      "keys": [
+        "piisqlhostname"
+      ],
+      "value": "mb-mo360dp-dev-we-pii-sql.database.windows.net"
+    },
+    {
+      "keys": [
+        "piisqldatabase"
+      ],
+      "value": "mb-mo360dp-dev-we-pii-sqldb"
+    },
+    {
+      "keys": [
+        "fabric_workspace_name"
+      ],
+      "value": "fabric-proddshbrd-dev"
+    },
+    {
+      "keys": [
+        "fabric_report_name"
+      ],
+      "value": "validation"
+    },
+    {
+      "keys": [
+        "sql_endpoint_name"
+      ],
+      "value": "proddshbrd-sql-endpoint-{{ index }}"
+    }
+  ],
+  "logging": {
+    "logger_name": "etl-{{ stageName }}-{{ version }}",
+    "loglevel": "INFO",
+    "secret_scope_name": "proddshbrd-databricks-etl"
+  },
+  "processingData": [],
+  "outputData": [],
+  "dataRetention": [],
+  "dataGlossary": [],
+  "dataQualityChecks": []
+}
