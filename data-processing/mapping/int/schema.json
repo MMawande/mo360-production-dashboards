@@ -1,0 +1,194 @@
+[
+  {
+    "schemaName": "einrichtpunkte_baureihe_dbf_0500",
+    "schemaDetails": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "fzg_typ",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "Einrichtpunkte",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    }
+  },
+  {
+    "schemaName": "einrichtpunkte_baureihe_dbf_0540",
+    "schemaDetails": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "fzg_typ",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "Einrichtpunkte",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    }
+  },
+  {
+    "schemaName": "einrichtpunkte_baureihe_dbf_0670",
+    "schemaDetails": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "fzg_typ",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "Einrichtpunkte",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    }
+  },
+  {
+    "schemaName": "einrichtpunkte_baureihe_dbf_1380",
+    "schemaDetails": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "fzg_typ",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "Einrichtpunkte",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    }
+  },
+  {
+    "schemaName": "einrichtpunkte_baureihe_dbf_1750",
+    "schemaDetails": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "fzg_typ",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "Einrichtpunkte",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    }
+  },
+  {
+    "schemaName": "mapping_w054_assembly_dbf",
+    "schemaDetails": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "fzg_typ",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "origin",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp_translated",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "messwerttyp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    }
+  }
+]
