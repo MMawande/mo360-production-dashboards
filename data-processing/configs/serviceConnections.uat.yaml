@@ -1,0 +1,4 @@
+variables:
+  - name: dataprocServiceConnection
+    value: "DATAPROC_mo360proddashboards_PRD" # Data processing sp
+    readonly: true
