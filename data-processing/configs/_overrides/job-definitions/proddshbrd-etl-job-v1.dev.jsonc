@@ -41,7 +41,7 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
@@ -56,7 +56,7 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
@@ -76,7 +76,7 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
@@ -96,7 +96,7 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
@@ -119,7 +119,7 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
@@ -142,13 +142,12 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
       "max_retries": 0
-    }
-    /*
+    },
     {
       "task_key": "05_py_powerbi",
       "job_cluster_key": "main_cluster",
@@ -169,12 +168,11 @@
         "base_parameters": {
           "config_path": "/Workspace/data-pipelines/v1/999_config/etl-config.jsonc",
           "constant_path": "/Workspace/data-pipelines/v1/999_config/etl-dev.jsonc",
-          "env_stage": "dev"  // 👈 override widget value here
+          "env_stage": "dev" // 👈 override widget value here
         }
       },
       "timeout_seconds": 0,
       "max_retries": 0
     }
-    */
   ]
 }
